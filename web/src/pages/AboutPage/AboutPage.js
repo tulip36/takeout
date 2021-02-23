@@ -1,14 +1,14 @@
 import { Link, routes } from '@redwoodjs/router'
 import MainLayout from 'src/layouts/MainLayout'
 
-const HomePage = () => {
+const AboutPage = () => {
   return (
     <>
       <MainLayout>
-        <Link to={routes.about()}>go to About</Link>
+        <Link to={routes.home()}>Home</Link>
       </MainLayout>
     </>
   )
 }
 
-export default HomePage
+export default AboutPage
