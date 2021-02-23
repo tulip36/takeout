@@ -16,3 +16,29 @@ model UserExample {
   email String  @unique
   name  String?
 }
+
+model Menu {
+  MenuId    Int      @id @default(autoincrement())
+  Price     Float
+  StartDate DateTime @default(now())
+  EndDate   DateTime
+  FoodId    Int
+  FoodItem  FoodItem @relation(fields: [FoodId], references: [FoodId])
+
+}
+
+model FoodItem {
+  FoodId     Int      @id @default(autoincrement())
+  Name       String
+  Quantity   Float
+  UnitPrice  Float
+  CategoryId Int
+  Category   Category @relation(fields: [CategoryId], references: [CategoryId])
+  Menu       Menu[]
+}
+
+model Category {
+  CategoryId Int        @id @default(autoincrement())
+  Nmae       String
+  FoodItem   FoodItem[]
+}
