@@ -18,27 +18,47 @@ model UserExample {
 }
 
 model Menu {
-  MenuId    Int      @id @default(autoincrement())
-  Price     Float
-  StartDate DateTime @default(now())
-  EndDate   DateTime
-  FoodId    Int
-  FoodItem  FoodItem @relation(fields: [FoodId], references: [FoodId])
+  menuId    Int      @id @default(autoincrement())
+  price     Float
+  startDate DateTime @default(now())
+  endDate   DateTime
+  foodId    Int
+  foodItem  FoodItem @relation(fields: [foodId], references: [foodId])
 
 }
 
 model FoodItem {
-  FoodId     Int      @id @default(autoincrement())
-  Name       String
-  Quantity   Float
-  UnitPrice  Float
-  CategoryId Int
-  Category   Category @relation(fields: [CategoryId], references: [CategoryId])
+  foodId     Int      @id @default(autoincrement())
+  name       String
+  quantity   Float
+  unitPrice  Float
+  categoryId Int
+  category   Category @relation(fields: [categoryId], references: [categoryId])
   Menu       Menu[]
 }
 
 model Category {
-  CategoryId Int        @id @default(autoincrement())
-  Nmae       String
-  FoodItem   FoodItem[]
+  categoryId Int        @id @default(autoincrement())
+  nmae       String
+  foodItem   FoodItem[]
+}
+
+model User {
+  id       Int       @id @default(autoincrement())
+  username String
+  password String
+  nickname String
+  status   Int
+  Profile  Profile[]
+}
+
+model Profile {
+  id        Int    @id @default(autoincrement())
+  userId    Int
+  user      User   @relation(fields: [userId], references: [id])
+  nmae      String
+  sex       String
+  address   String
+  telephone String
+  status    Int
 }
