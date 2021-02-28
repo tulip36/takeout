@@ -1,5 +1,3 @@
-import ReactDOM from 'react-dom'
-
 import { FatalErrorBoundary } from '@redwoodjs/web'
 import { RedwoodApolloProvider } from '@redwoodjs/web/apollo'
 
@@ -9,11 +7,14 @@ import Routes from 'src/Routes'
 import './scaffold.css'
 import './index.css'
 
-ReactDOM.render(
-  <FatalErrorBoundary page={FatalErrorPage}>
-    <RedwoodApolloProvider>
-      <Routes />
-    </RedwoodApolloProvider>
-  </FatalErrorBoundary>,
-  document.getElementById('redwood-app')
-)
+const App = () => {
+  return (
+    <FatalErrorBoundary page={FatalErrorPage}>
+      <RedwoodApolloProvider>
+        <Routes />
+      </RedwoodApolloProvider>
+    </FatalErrorBoundary>
+  )
+}
+
+export default App
