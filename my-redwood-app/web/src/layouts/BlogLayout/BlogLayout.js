@@ -9,6 +9,7 @@ const BlogLayout = ({ children }) => {
           <ul className="border border-solid space-x-4 text-green-500">
             <Link to={routes.home()}>Home</Link>
             <Link to={routes.about()}>About</Link>
+            <Link to={routes.posts()}>Posts</Link>
           </ul>
         </nav>
       </header>
