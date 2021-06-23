@@ -8,7 +8,10 @@
     ]
   },
   "devDependencies": {
-    "@redwoodjs/core": "^0.34.1"
+    "@redwoodjs/core": "^0.34.1",
+    "autoprefixer": "^10.2.6",
+    "postcss": "^8.3.5",
+    "tailwindcss": "^2.2.2"
   },
   "eslintConfig": {
     "extends": "@redwoodjs/eslint-config",
