@@ -7,15 +7,15 @@ import {
   Submit,
 } from '@redwoodjs/forms'
 
-// const formatDatetime = (value) => {
-//   if (value) {
-//     return value.replace(/:\d{2}\.\d{3}\w/, '')
-//   }
-// }
+const formatDatetime = (value) => {
+  if (value) {
+    return value.replace(/:\d{2}\.\d{3}\w/, '')
+  }
+}
 
-const PostForm = (props) => {
+const CategoryForm = (props) => {
   const onSubmit = (data) => {
-    props.onSave(data, props?.post?.id)
+    props.onSave(data, props?.category?.id)
   }
 
   return (
@@ -29,36 +29,36 @@ const PostForm = (props) => {
         />
 
         <Label
-          name="title"
+          name="name"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Title
+          Name
         </Label>
         <TextField
-          name="title"
-          defaultValue={props.post?.title}
+          name="name"
+          defaultValue={props.category?.name}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
         />
-        <FieldError name="title" className="rw-field-error" />
+        <FieldError name="name" className="rw-field-error" />
 
         <Label
-          name="body"
+          name="note"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Body
+          Note
         </Label>
         <TextField
-          name="body"
-          defaultValue={props.post?.body}
+          name="note"
+          defaultValue={props.category?.note}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
         />
-        <FieldError name="body" className="rw-field-error" />
+        <FieldError name="note" className="rw-field-error" />
 
         <div className="rw-button-group">
           <Submit disabled={props.loading} className="rw-button rw-button-blue">
@@ -70,4 +70,4 @@ const PostForm = (props) => {
   )
 }
 
-export default PostForm
+export default CategoryForm

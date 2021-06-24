@@ -22,3 +22,46 @@ model Post {
   body      String
   createdAt DateTime @default(now())
 }
+
+// The table of administrator who manages the menu, food items
+// status: enabled, pending, disabled
+model Admin {
+  id        Int    @id @default(autoincrement())
+  firstName String
+  lastName  String
+  userName  String
+  password  String
+  status    String @default("enabled")
+  menu      Menu?
+}
+
+// The table of menu
+model Menu {
+  id        Int      @id @default(autoincrement())
+  price     Decimal
+  startDate DateTime
+  endDate   DateTime
+  foodItem  Fooditem @relation(fields: [foodId], references: [id])
+  foodId    Int
+  admin     Admin    @relation(fields: [adminId], references: [id])
+  adminId   Int
+}
+
+// The table of food items
+model Fooditem {
+  id         Int      @id @default(autoincrement())
+  name       String
+  quantity   Int
+  unitPrice  Decimal
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
+  menu       Menu?
+}
+
+// The table of category
+model Category {
+  id       Int        @id @default(autoincrement())
+  name     String
+  note     String
+  fooditem Fooditem[]
+}

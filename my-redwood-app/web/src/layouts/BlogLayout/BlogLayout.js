@@ -3,8 +3,8 @@ import { Link, routes } from '@redwoodjs/router'
 const BlogLayout = ({ children }) => {
   return (
     <>
-      <header className="space-y-3">
-        <h1>BlogLayout</h1>
+      <header className="mt-3">
+        <h1 className="mb-3">BlogLayout</h1>
         <nav>
           <ul className="border border-solid space-x-4 text-green-500">
             <Link to={routes.home()}>Home</Link>
@@ -13,7 +13,7 @@ const BlogLayout = ({ children }) => {
           </ul>
         </nav>
       </header>
-      <main>{children}</main>
+      <main className="my-5">{children}</main>
     </>
   )
 }
